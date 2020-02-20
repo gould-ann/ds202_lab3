@@ -1,0 +1,35 @@
+---
+title: "Lab3"
+output:
+  html_document:
+    df_print: paged
+---
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+data <- readxl::read_xls('GSS.xls')
+names(data) <- c("year", "id", "num_hours", "marital_status", "sex", "affiliation", "happiness", "ballot")
+print(data)
+```
+
+1.
+```{r}
+my_plot <- ggplot(data=data,  aes(x=happiness, fill=marital_status))
+my_plot + geom_bar()
+```
+2.
+```{r}
+my_plot + geom_bar() + facet_wrap(~sex)
+```
+
+3.
+```{r}
+my_plot <- ggplot(data=data,  aes(x=happiness, fill=affiliation))
+my_plot + geom_bar() 
+```
+
+4.
+~ part for henry to do~
