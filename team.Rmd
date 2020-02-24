@@ -1,5 +1,6 @@
 ---
 title: "Lab3"
+names: "Ann Gould and Henry Underhill"
 output:
   html_document:
     df_print: paged
@@ -20,16 +21,53 @@ print(data)
 my_plot <- ggplot(data=data,  aes(x=happiness, fill=marital_status))
 my_plot + geom_bar()
 ```
+
+The barchart created here visualizes the relationship between patient individual happiness and marital status. The colors of each bar establish the different statuses of marriage, from divorced, married, never married, separated, and widowed. From the respondents, we see that most respondents are pretty happy, and most that are pretty happy are also married. There are a significant portion of respondents who are pretty and happy, but also divorced or never married. When looking at those who are very happy, the vast majority are married. The majority of those who are not too happy are either married, or never married. Overall, we can conclude that respondents are generally happy, even when they are never married or divorced. 
+
 2.
 ```{r}
 my_plot + geom_bar() + facet_wrap(~sex)
 ```
 
+As with the previous barchart, this barchart investigates the relationship between respondent happiness and martital status, but with the inclusion of sex separated for each barchart. We see similar shapes between females and males in the barcharts, with high points at pretty happy. We see more females responded to the survey, however, displaying a much higher peak on each of the bars. Primarily, the marital status for both sexes follows a similar trend. Those who are married are primarily pretty happy or very happy. There are much fewer divorced men who are very happy, however. We also see many more widowed females who are pretty happy, sexes, but both follow similar trends in happiness and marital status. 
 3.
 ```{r}
 my_plot <- ggplot(data=data,  aes(x=happiness, fill=affiliation))
 my_plot + geom_bar() 
 ```
 
+This barchart is visualizing the relationship between respondent happiness and the level of their political party affiliation. We see that again, most respondents are pretty happy or very happy. Much fewer are not too happy. Primarily, those that fall in the pretty happy category are those who are either not strictly democrat/republican, and those who are strong democrats or independent. For very happy, we see an even spread amongst the affiliations. The responses of not strictly democrat/republican, and strong democrat/republican are about equal. For those who are not very happy, we see the again, an even distribution. Those who are not very happy tend to be independent, or not strictly towards either side. Overall, we can conclude that it is difficult to associatite political party affiliation with overall happiness. 
+
 4.
-~ part for henry to do~
+
+How does political party affiliation relate to the sex of the respondent?
+
+```{r}
+ggplot(data=data,  aes(x=sex, fill=affiliation)) + geom_bar()
+```
+
+This barchart visualizes the relationship between levels of political party affiliation based on sex. Starting with the amount of respondents, we see that females responded more frequently than men in this survey. We see many more strong democrats and not strictly democrats in for women than men, whereas men is much closer to 50-50 for democrats and republicans. We also see about equal numbers for independent parties. Overall, we can conclude that women in this survey tend to lean towards the democratic side, whereas the split is more 50-50 for men. 
+
+How does marital status relate to the political party affiliation of the respondent?
+
+```{r}
+ggplot(data=data,  aes(x=marital_status, fill=affiliation)) + geom_bar()
+```
+
+We see that primarily, most respondents are of married status. When it comes to those who are married, there is an even split for those are married between democrats and republicans. We those who are never married tend to favor democrat, but only slightly. We also see that those who are widowed tend to slightly favor republican. Overall, we can conclude that those who are more likely of an older age (widowed) favor republican, while the likely younger (never married) favor democrat. 
+
+How does the year affect the happiness of the respondent, based on sex?
+
+```{r}
+ggplot(data=data,  aes(x=year, fill=happiness)) + geom_bar()
+```
+
+This barchart visualizes how respondent happiness has changed over time. While numbers regarding happiness were rather consistent for the first approximately 20 years, around the early 1990s, those who are very happy steadily increased, to a major increase in the mid 1990s. This primarily due to a significant increase in respondents. The distribution of happiness overall, percentage-wise, has remained rather consistent over time. 
+
+How does political party affiliation change over time (year)?
+
+```{r}
+ggplot(data=data,  aes(x=year, fill=affiliation)) + geom_bar()
+```
+
+This chart visualizes how political party affiliation has changed over time. We see the distribution of democrats remains relatively consistent over time, with an increase after the mid 2000's. There is a peak in strong democrats/republicans around 2004, due to the drastic increase in respondents. Overall, we see a steady trend in an increase of democratic affiliated respondents. We also see strength of respondents increase. 
